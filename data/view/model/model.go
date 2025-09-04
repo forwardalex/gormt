@@ -128,6 +128,7 @@ func (m *_Model) genTableElement(cols []ColumnsInfo) (el []genstruct.GenElement)
 	_tagJSON := config.GetURLTag()
 
 	for _, v := range cols {
+		v.Type = strings.ToLower(v.Type)
 		var tmp genstruct.GenElement
 		var isPK bool
 		if strings.EqualFold(v.Type, "gorm.Model") { // gorm model
@@ -366,6 +367,7 @@ func (m *_Model) generateFunc() (genOut []GenOutInfo) {
 
 		var primary, unique, uniqueIndex, index []FList
 		for _, el := range tab.Em {
+			el.Type = strings.ToLower(el.Type)
 			if strings.EqualFold(el.Type, "gorm.Model") {
 				data.Em = append(data.Em, getGormModelElement()...)
 				pkg.AddImport(`"time"`)

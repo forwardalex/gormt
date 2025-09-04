@@ -7,10 +7,10 @@ import (
 
 	"github.com/xxjwxc/public/mylog"
 
+	"github.com/glebarez/sqlite"
 	"github.com/xxjwxc/gormt/data/config"
 	"github.com/xxjwxc/gormt/data/view/model"
 	"github.com/xxjwxc/public/tools"
-	"gorm.io/driver/sqlite"
 	"gorm.io/gorm"
 )
 
